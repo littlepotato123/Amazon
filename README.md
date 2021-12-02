@@ -69,13 +69,14 @@ Data Types
   - Price
   - Tags (List)
   - Product Company
-  - Boughyt Count
+  - Bought Count
 - User
   - Username
   - Password
   - Current Cart List
   - User ID
   - Favorites
+  - Bought Item List
 - Main User
   - AUTH ID
   - Username

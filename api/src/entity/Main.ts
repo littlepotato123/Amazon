@@ -3,7 +3,7 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @ObjectType()
 @Entity()
-export class User extends BaseEntity {
+export class Main extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id: number;
@@ -15,16 +15,5 @@ export class User extends BaseEntity {
   @Field()
   @Column()
   password: string;
-
-  @Field()
-  @Column()
-  bought: string;
-
-  @Field()
-  @Column()
-  favorites: string;
-
-  @Field()
-  @Column()
-  current: string;
 }
+

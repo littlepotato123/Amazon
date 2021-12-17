@@ -3,7 +3,7 @@ import express from "express";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
-import { HelloWorldResolver } from "./resolvers/HelloWorldResolver";
+import { AuthenticationResolver } from "./resolvers/Authentication";
 
 (async () => {
   const app = express();
@@ -12,7 +12,7 @@ import { HelloWorldResolver } from "./resolvers/HelloWorldResolver";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [HelloWorldResolver]
+      resolvers: [AuthenticationResolver]
     }),
     context: ({ req, res }) => ({ req, res })
   });

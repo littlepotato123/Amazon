@@ -3,28 +3,25 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @ObjectType()
 @Entity()
-export class User extends BaseEntity {
+export class Item extends BaseEntity {
   @Field(() => Int)
   @PrimaryGeneratedColumn()
   id: number;
 
   @Field()
   @Column()
-  username: string;
+  name: string;
+
+  @Field(() => Int)
+  @Column()
+  price: number;
+
+  @Field(() => Int)
+  @Column()
+  bought_count: number;
 
   @Field()
   @Column()
-  password: string;
-
-  @Field()
-  @Column()
-  bought: string;
-
-  @Field()
-  @Column()
-  favorites: string;
-
-  @Field()
-  @Column()
-  current: string;
+  tags: string
 }
+

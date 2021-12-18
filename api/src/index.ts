@@ -4,6 +4,8 @@ import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
 import { AuthenticationResolver } from "./resolvers/Authentication";
+import { ItemResolver } from "./resolvers/ItemResolver";
+import { Setup } from "./resolvers/Setup";
 
 (async () => {
   const app = express();
@@ -12,7 +14,7 @@ import { AuthenticationResolver } from "./resolvers/Authentication";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [AuthenticationResolver]
+      resolvers: [AuthenticationResolver, Setup, ItemResolver]
     }),
     context: ({ req, res }) => ({ req, res })
   });

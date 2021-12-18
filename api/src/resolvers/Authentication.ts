@@ -1,4 +1,5 @@
 import { Arg, Field, InputType, Mutation, Query, Resolver } from "type-graphql";
+import { Item } from "../entity/Item";
 import { Main } from "../entity/Main";
 import { User } from "../entity/User";
 
@@ -31,20 +32,23 @@ class UserSignupInput {
 
 @Resolver()
 export class AuthenticationResolver {
-    @Query(() => String)
+    @Query(() => String!)
     async main_login(@Arg("login", () => MainLoginInput) login: MainLoginInput) {
-        const found = await Main.findOne({
-            where: {
-                username: login.username,
-                password: login.password
-            }
-        });
-
+        const found = await Main.findOne();
+        console.log(found);
+        console.log(login);
         if(found) {
             return "KEY";
         } else {
             return null;
         }
+    }
+
+    @Mutation(() => Boolean)
+    async delete_main() {
+        await Main.delete({});
+        await Item.delete({});
+        return true;
     }
 
     @Query(() => String)
@@ -73,10 +77,16 @@ export class AuthenticationResolver {
             bought: "",
             current: "",
             favorites: ""
-        })
-        if(made) {
+        }).save();
+        if(made.id) {
             return true;
         }
         return false;
+    }
+
+    @Query(() => [User!])
+    async all_users() {
+        const all = await User.find();
+        return all;
     }
 }

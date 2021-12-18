@@ -23,7 +23,6 @@ Sample Dataset
   - Suit
   - Ties and Bow Ties
   - Leggings
-  - Jeans
 - Toys
   - Legos
   - Remote Control Robots
@@ -33,7 +32,6 @@ Sample Dataset
 - Furniture (Bathroom)
   - Couches
   - Chair/Table/Desk
-  - Cleaning WEbsite
   - Toilet Paper
   - Toothbrush/Toothpaste/Floss
 - Kitchen Supplies
@@ -50,7 +48,6 @@ Sample Dataset
   - Running Shoes
   - Stair Steppers
   - Treadmils
-  - Weights
 - Books
   - Michael Vey Series
   - Manga

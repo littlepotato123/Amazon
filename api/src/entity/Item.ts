@@ -24,4 +24,3 @@ export class Item extends BaseEntity {
   @Column()
   tags: string
 }
-

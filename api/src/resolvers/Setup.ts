@@ -1,6 +1,7 @@
 import { Mutation, Resolver } from "type-graphql";
 import { Item } from "../entity/Item";
 import { Main } from "../entity/Main";
+import { User } from "../entity/User";
 import { list } from "../Item_List";
 
 @Resolver()
@@ -29,5 +30,13 @@ export class Setup {
         } else {
             return false;
         }
+    }
+
+    @Mutation(() => Boolean)
+    async delete_all() {
+        await Item.delete({});
+        await Main.delete({});
+        await User.delete({});
+        return true;
     }
 }

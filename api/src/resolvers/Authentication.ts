@@ -69,7 +69,7 @@ export class AuthenticationResolver {
         }
     }
 
-    @Mutation(() => Boolean)
+    @Mutation(() => String)
     async user_signup(@Arg("signup", () => UserSignupInput) signup: UserSignupInput) {
         const made = await User.create({
             username: signup.username,
@@ -79,9 +79,9 @@ export class AuthenticationResolver {
             favorites: ""
         }).save();
         if(made.id) {
-            return true;
+            return `${made.id}`;
         }
-        return false;
+        return "-1";
     }
 
     @Query(() => [User!])

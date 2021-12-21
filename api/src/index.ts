@@ -4,6 +4,7 @@ import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { createConnection } from "typeorm";
 import { AuthenticationResolver } from "./resolvers/Authentication";
+import { CartResolver } from "./resolvers/CartResolver";
 import { ItemResolver } from "./resolvers/ItemResolver";
 import { Setup } from "./resolvers/Setup";
 
@@ -14,7 +15,7 @@ import { Setup } from "./resolvers/Setup";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [AuthenticationResolver, Setup, ItemResolver]
+      resolvers: [AuthenticationResolver, Setup, ItemResolver, CartResolver]
     }),
     context: ({ req, res }) => ({ req, res })
   });

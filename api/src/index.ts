@@ -6,6 +6,7 @@ import { createConnection } from "typeorm";
 import { AuthenticationResolver } from "./resolvers/Authentication";
 import { CartResolver } from "./resolvers/CartResolver";
 import { ItemResolver } from "./resolvers/ItemResolver";
+import { PageResolver } from "./resolvers/PageResolver";
 import { Setup } from "./resolvers/Setup";
 
 (async () => {
@@ -15,7 +16,7 @@ import { Setup } from "./resolvers/Setup";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [AuthenticationResolver, Setup, ItemResolver, CartResolver]
+      resolvers: [AuthenticationResolver, Setup, ItemResolver, CartResolver, PageResolver]
     }),
     context: ({ req, res }) => ({ req, res })
   });

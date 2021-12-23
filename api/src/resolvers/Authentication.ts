@@ -30,8 +30,36 @@ class UserSignupInput {
     password: string;
 }
 
+@InputType()
+class DeleteUserInput {
+    @Field()
+    id: string;
+
+    @Field()
+    password: string;
+}
+
 @Resolver()
 export class AuthenticationResolver {
+    @Mutation(() => Boolean)
+    async delete_user(@Arg("del", () => DeleteUserInput) del: DeleteUserInput) {
+        const user = await User.findOne({
+            where: {
+                id: del.id
+            }
+        });
+        if(user) {
+            if(user.password == del.password) {
+                await User.delete(del.id);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
     @Query(() => String!)
     async main_login(@Arg("login", () => MainLoginInput) login: MainLoginInput) {
         const found = await Main.findOne();

@@ -61,13 +61,13 @@ export class CartResolver {
         });
 
         if(user) {
-            let bought = user.current;
-            let bought_list = bought.split(',');
+            let current = user.current;
+            let current_list = current.split(',');
 
-            for(let i = 0; i < bought_list.length; i++) {
+            for(let i = 0; i < current_list.length; i++) {
                 let item = await Item.findOne({
                     where: {
-                        name: bought_list[i]
+                        name: current_list[i]
                     }
                 });
                 if(item) {
@@ -78,6 +78,9 @@ export class CartResolver {
                     });
                 }
             }
+
+            let bought = user.bought;
+            bought += current;
 
             await User.update(user.id, {
                 current: "",

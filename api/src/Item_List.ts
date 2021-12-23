@@ -211,3 +211,35 @@ export const list: Array<Item> = [
         tags: "Reading,Series,Books"
     }
 ]
+
+export const Company_List = [
+    'Garmin',
+    'Apple',
+    'Dell',
+    'Google',
+    'Amazon',
+    'Logitech',
+    "Kohl's",
+    'Lego',
+    'Pokemon',
+    'Kroger',
+    'IKEA'
+];
+
+export const Category_List = [
+    'Running',
+    'Technology',
+    'Light',
+    'Heartrate',
+    'Sleep',
+    'Voice',
+    'Smart',
+    'Clothes',
+    'Toys',
+    'Kids',
+    'Games',
+    'Board',
+    'Necessary',
+    'Dentistry',
+    'Kitchen'
+];
